@@ -1,0 +1,13 @@
+databaseChangeLog:
+  - changeSet:
+      id: create_index_table_city
+      author: rtyswe
+      changes:
+        - createIndex:
+            columns:
+              - column:
+                  name: name
+            indexName: idx_city
+            schemaName: distance-calculator
+            tableName: city
+            unique:  true

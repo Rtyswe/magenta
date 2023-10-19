@@ -1,0 +1,25 @@
+databaseChangeLog:
+  - changeSet:
+      id: create_table_distance
+      author: rtyswe
+      changes:
+        - createTable:
+            tableName: distance
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: from_city
+                  type: varchar(50)
+              - column:
+                  name: to_city
+                  type: varchar(50)
+              - column:
+                  name: distance
+                  type: float
+                  constraints:
+                    nullable: false
+

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<upload_data>
+    <cities>
+        <city>
+            <name>Санкт-Петербург</name>
+            <latitude>59.938784</latitude>
+            <longitude>30.314997</longitude>
+        </city>
+        <city>
+            <name>Самара</name>
+            <latitude>53.195878</latitude>
+            <longitude>50.100202</longitude>
+        </city>
+    </cities>
+    <distances>
+        <distance>
+            <from>Санкт-Петербург</from>
+            <to>Самара</to>
+            <distanceValue>1417</distanceValue>
+        </distance>
+    </distances>
+</upload_data>
