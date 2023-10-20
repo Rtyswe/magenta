@@ -3,6 +3,8 @@ package com.example.magenta.service;
 import com.example.magenta.calculator.DistanceCalculator;
 import com.example.magenta.dto.CalculationType;
 import com.example.magenta.dto.DistanceDto;
+import com.example.magenta.exception.IncorrectRequestParamException;
+import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -23,6 +25,9 @@ public class DistanceService {
     }
 
     public List<DistanceDto> getDistances(CalculationType calculationType, List<String> from, List<String> to) {
+        if (CollectionUtils.isEmpty(from) || CollectionUtils.isEmpty(to) || from.size() != to.size()) {
+            throw new IncorrectRequestParamException();
+        }
         return registry.get(calculationType).getDistances(from, to);
     }
 

@@ -38,9 +38,10 @@ public class MainController {
     }
 
     @GetMapping("/calculate")
-    public List<DistanceDto> getDistances(@RequestParam CalculationType calculationType,
-                                          @RequestParam List<String> from,
-                                          @RequestParam List<String> to) {
+    public List<DistanceDto> getDistances(
+            @RequestParam(required = false, defaultValue = "DISTANCE_MATRIX") CalculationType calculationType,
+            @RequestParam List<String> from,
+            @RequestParam List<String> to) {
         return distanceService.getDistances(calculationType, from, to);
     }
 
