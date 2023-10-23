@@ -19,10 +19,6 @@ databaseChangeLog:
               - column:
                   name: latitude
                   type: float
-                  constraints:
-                    nullable: false
               - column:
                   name: longitude
                   type: float
-                  constraints:
-                    nullable: false

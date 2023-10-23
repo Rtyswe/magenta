@@ -12,11 +12,19 @@ databaseChangeLog:
                   constraints:
                     primaryKey: true
               - column:
-                  name: from_city
-                  type: varchar(50)
+                  name: from_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: from_city_fk
+                    referencedTableName: city
+                    referencedColumnNames: id
               - column:
-                  name: to_city
-                  type: varchar(50)
+                  name: to_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: to_city_fk
+                    referencedTableName: city
+                    referencedColumnNames: id
               - column:
                   name: distance
                   type: float

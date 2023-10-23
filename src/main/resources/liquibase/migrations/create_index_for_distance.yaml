@@ -6,9 +6,9 @@ databaseChangeLog:
         - createIndex:
             columns:
               - column:
-                  name: from_city
+                  name: from_id
               - column:
-                  name: to_city
+                  name: to_id
             indexName: idx_distance
             schemaName: distance-calculator
             tableName: distance
