@@ -2,7 +2,7 @@ package com.example.magenta.controller;
 
 import com.example.magenta.dto.CalculationType;
 import com.example.magenta.dto.CityDto;
-import com.example.magenta.dto.DistanceDto;
+import com.example.magenta.dto.DistanceResponse;
 import com.example.magenta.service.CityService;
 import com.example.magenta.service.DistanceService;
 import com.example.magenta.service.XmlUploadService;
@@ -38,7 +38,7 @@ public class MainController {
     }
 
     @GetMapping("/calculate")
-    public List<DistanceDto> getDistances(
+    public DistanceResponse getDistances(
             @RequestParam(required = false, defaultValue = "DISTANCE_MATRIX") CalculationType calculationType,
             @RequestParam List<String> from,
             @RequestParam List<String> to) {

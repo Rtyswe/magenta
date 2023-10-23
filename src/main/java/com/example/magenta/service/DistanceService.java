@@ -2,8 +2,9 @@ package com.example.magenta.service;
 
 import com.example.magenta.calculator.DistanceCalculator;
 import com.example.magenta.dto.CalculationType;
-import com.example.magenta.dto.DistanceDto;
+import com.example.magenta.dto.DistanceResponse;
 import com.example.magenta.exception.IncorrectRequestParamException;
+import com.example.magenta.exception.NotEnoughDataToCalculateException;
 import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.stereotype.Service;
 
@@ -24,11 +25,16 @@ public class DistanceService {
                                 Function.identity()));
     }
 
-    public List<DistanceDto> getDistances(CalculationType calculationType, List<String> from, List<String> to) {
+    public DistanceResponse getDistances(CalculationType calculationType, List<String> from, List<String> to) {
         if (CollectionUtils.isEmpty(from) || CollectionUtils.isEmpty(to)) {
             throw new IncorrectRequestParamException();
         }
-        return registry.get(calculationType).getDistances(from, to);
+
+        DistanceResponse response = registry.get(calculationType).getDistances(from, to);
+        if (from.size() * to.size() != response.getDistanceMatrix().size() + response.getCrowFlights().size()) {
+            throw new NotEnoughDataToCalculateException();
+        }
+        return response;
     }
 
 }
