@@ -25,7 +25,7 @@ public class DistanceService {
     }
 
     public List<DistanceDto> getDistances(CalculationType calculationType, List<String> from, List<String> to) {
-        if (CollectionUtils.isEmpty(from) || CollectionUtils.isEmpty(to) || from.size() != to.size()) {
+        if (CollectionUtils.isEmpty(from) || CollectionUtils.isEmpty(to)) {
             throw new IncorrectRequestParamException();
         }
         return registry.get(calculationType).getDistances(from, to);

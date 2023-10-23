@@ -7,4 +7,8 @@ public class NotEnoughDataToCalculateException extends BaseException {
     public NotEnoughDataToCalculateException() {
         super(HttpStatus.NOT_FOUND, "Недостаточно информации для вычисления расстояния");
     }
+
+    public NotEnoughDataToCalculateException(String message) {
+        super(HttpStatus.NOT_FOUND, message);
+    }
 }
